@@ -2,7 +2,7 @@ schemaVersion: 1
 labeler: "rohan + claude, 2026-08-23"
 expected:
   - kind: library
-    name: "@anthropic-ai/sdk"
+    name: anthropic
     version: "0.33.1"
     evidence: [{file: package.json}, {file: src/triage.ts}]
   - kind: hosted-llm
@@ -13,3 +13,9 @@ expected:
 notes: |
   Exact npm pin (no range), so the SDK version IS graded exact here — the
   counterpart to s-js-openai's absent assertion.
+  2026-08-23: label @anthropic-ai/sdk -> anthropic after review. The scanner
+  folds every sighting of a package (manifest declaration, code import, call
+  shape) into ONE component, which requires one name; its rules claim the
+  provider-canonical "anthropic", and the declared npm name travels in the
+  purl when a resolved version exists. The label adopts the ecosystem-canonical
+  display name; the fold is load-bearing, not cosmetic.

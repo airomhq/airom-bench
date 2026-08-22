@@ -6,7 +6,7 @@ expected:
     version: ""
     evidence: [{file: package.json}, {file: src/summarize.js}]
   - kind: library
-    name: "@anthropic-ai/sdk"
+    name: anthropic
     version: ""
     evidence: [{file: package.json}]
   - kind: hosted-llm
@@ -19,3 +19,9 @@ notes: |
   version is ABSENT on every label: a scanner that reports 4.77.0 as the
   version invented a resolution nothing performed. This entry exists to
   grade exactly that.
+  2026-08-23: label @anthropic-ai/sdk -> anthropic after review. The scanner
+  folds every sighting of a package (manifest declaration, code import, call
+  shape) into ONE component, which requires one name; its rules claim the
+  provider-canonical "anthropic", and the declared npm name travels in the
+  purl when a resolved version exists. The label adopts the ecosystem-canonical
+  display name; the fold is load-bearing, not cosmetic.
