@@ -1,0 +1,16 @@
+schemaVersion: 1
+labeler: "rohan + claude, 2026-08-23"
+expected:
+  - kind: infra
+    name: ollama
+    version: "*"
+    evidence: [{file: docker-compose.yml}]
+  - kind: hosted-llm
+    name: "llama3.3:70b"
+    version: "*"
+    evidence: [{file: docker-compose.yml}]
+notes: |
+  The MODEL_ID env value names the model the deployment serves. Kind is
+  labeled hosted-llm from the app's point of view (an endpoint it calls);
+  if the ontology grades an ollama-served model differently, that debate
+  lands here. Version "*": the 70b tag is arguably a variant, not a version.

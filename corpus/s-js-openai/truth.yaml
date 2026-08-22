@@ -1,0 +1,21 @@
+schemaVersion: 1
+labeler: "rohan + claude, 2026-08-23"
+expected:
+  - kind: library
+    name: openai
+    version: ""
+    evidence: [{file: package.json}, {file: src/summarize.js}]
+  - kind: library
+    name: "@anthropic-ai/sdk"
+    version: ""
+    evidence: [{file: package.json}]
+  - kind: hosted-llm
+    name: gpt-4o-mini
+    provider: openai
+    version: ""
+    evidence: [{file: src/summarize.js, lines: [5, 11]}]
+notes: |
+  Both dependencies declare ranges and there is no lockfile, so the honest
+  version is ABSENT on every label: a scanner that reports 4.77.0 as the
+  version invented a resolution nothing performed. This entry exists to
+  grade exactly that.

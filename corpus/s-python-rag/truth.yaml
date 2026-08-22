@@ -1,0 +1,53 @@
+schemaVersion: 1
+labeler: "rohan + claude, 2026-08-23"
+expected:
+  - kind: framework
+    name: langchain
+    version: "0.3.14"
+    evidence: [{file: requirements.txt}]
+  - kind: library
+    name: openai
+    version: "1.59.5"
+    evidence: [{file: requirements.txt}, {file: src/pipeline.py}]
+  - kind: vector-db
+    name: chroma
+    version: "0.6.2"
+    evidence: [{file: requirements.txt}, {file: src/pipeline.py}]
+  - kind: framework
+    name: sentence-transformers
+    version: "3.3.1"
+    evidence: [{file: requirements.txt}]
+  - kind: hosted-llm
+    name: gpt-4o-mini
+    provider: openai
+    version: ""
+    evidence: [{file: src/pipeline.py, lines: [19, 25]}]
+  - kind: embedding-model
+    name: all-MiniLM-L6-v2
+    version: ""
+    evidence: [{file: src/pipeline.py, lines: [7, 7]}]
+  - kind: prompt
+    name: system.j2
+    version: "*"
+    evidence: [{file: prompts/system.j2}]
+  - kind: rag-pipeline
+    name: rag-pipeline
+    version: "*"
+    evidence: [{file: src/pipeline.py}]
+  - kind: dataset
+    name: tickets.jsonl
+    version: "*"
+    evidence: [{file: data/tickets.jsonl}]
+notes: |
+  The kind-dense Python entry: manifest + code corroboration for the library
+  and vector DB, a hosted model with bound params, a local embedding model
+  reference, a Jinja prompt, and a JSONL dataset. sentence-transformers is
+  labeled framework (it wraps model use); if the catalog says library, that
+  is a labeling debate to settle in this file's history, not silently.
+  2026-08-23: rag-pipeline label ADDED after first run: the tree embeds,
+  stores, retrieves, and generates, which is the definition of the
+  composite. The labeler missed it; the scanner did not. Bound generation
+  params (temperature, max_tokens) remain deliberately unlabeled: §9.5
+  defines ai-config as UNBOUND params, and these are bound to the call
+  that names the model, so standalone ai-config components for them are
+  counted as the false positives they are.

@@ -1,0 +1,35 @@
+schemaVersion: 1
+labeler: "rohan + claude, 2026-08-23"
+expected:
+  - kind: hosted-llm
+    name: gpt-3.5-turbo
+    provider: openai
+    version: ""
+    scope: test
+    evidence: [{file: tests/test_client.py, lines: [6, 6]}]
+forbidden:
+  - kind: hosted-llm
+    name: claude-3-opus
+    reason: "README comparison table; nothing here calls it"
+    evidence: [{file: README.md}]
+  - kind: hosted-llm
+    name: gemini-1.5-pro
+    reason: "README comparison table; nothing here calls it"
+    evidence: [{file: README.md}]
+  - kind: hosted-llm
+    name: gpt-4-turbo
+    reason: "README comparison table; nothing here calls it"
+    evidence: [{file: README.md}]
+  - kind: hosted-llm
+    name: gpt-4o
+    reason: "docstring worked example; the transformers lesson"
+    evidence: [{file: docs/howto.py}]
+  - kind: hosted-llm
+    name: claude-3-5-sonnet-20241022
+    reason: "code comment describing a rejected alternative"
+    evidence: [{file: docs/howto.py}]
+notes: |
+  Every forbidden entry is a shape that fooled some scanner once: README
+  tables, docstring worked examples, comments. The one expected entry is
+  test-scoped: a model literal in a mock call is real enough to report, but
+  only under its test scope.

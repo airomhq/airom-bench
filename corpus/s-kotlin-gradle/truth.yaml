@@ -1,0 +1,12 @@
+schemaVersion: 1
+labeler: "rohan + claude, 2026-08-23"
+expected:
+  - kind: library
+    name: openai-client
+    version: "4.0.1"
+    evidence: [{file: build.gradle.kts}]
+  - kind: hosted-llm
+    name: gpt-4o-mini
+    provider: openai
+    version: ""
+    evidence: [{file: src/main/kotlin/Draft.kt, lines: [6, 9]}]

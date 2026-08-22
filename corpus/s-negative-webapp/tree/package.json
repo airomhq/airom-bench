@@ -1,0 +1,8 @@
+{
+  "name": "inventory-dashboard",
+  "private": true,
+  "dependencies": {
+    "express": "4.21.2",
+    "pg": "8.13.1"
+  }
+}

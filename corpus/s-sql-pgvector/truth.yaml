@@ -1,0 +1,7 @@
+schemaVersion: 1
+labeler: "rohan + claude, 2026-08-23"
+expected:
+  - kind: vector-db
+    name: pgvector
+    version: ""
+    evidence: [{file: migrations/0001_embeddings.sql, lines: [1, 9]}]

@@ -1,0 +1,16 @@
+schemaVersion: 1
+labeler: "rohan + claude, 2026-08-23"
+expected:
+  - kind: local-model-file
+    name: bench-tiny-llama
+    version: ""
+    evidence: [{file: models/bench-tiny-llama.gguf}]
+  - kind: local-model-file
+    name: bench-mlp
+    version: ""
+    evidence: [{file: models/bench-mlp.safetensors}]
+notes: |
+  Both artifacts were written byte-by-byte from the format specifications for
+  this corpus, never copied from any fixture. The GGUF carries general.name;
+  the safetensors has no name metadata, so its honest name is the filename
+  stem.

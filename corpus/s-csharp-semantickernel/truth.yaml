@@ -1,0 +1,12 @@
+schemaVersion: 1
+labeler: "rohan + claude, 2026-08-23"
+expected:
+  - kind: framework
+    name: Microsoft.SemanticKernel
+    version: "1.32.0"
+    evidence: [{file: Assistant.csproj}]
+  - kind: hosted-llm
+    name: gpt-4o-mini
+    provider: openai
+    version: ""
+    evidence: [{file: Program.cs, lines: [4, 4]}]

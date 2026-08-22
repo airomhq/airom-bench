@@ -1,0 +1,5 @@
+schemaVersion: 1
+labeler: "rohan + claude, 2026-08-23"
+notes: |
+  Pure negative: an ordinary CRUD service. Anything reported here is a false
+  positive, and this entry is what keeps the precision number honest.

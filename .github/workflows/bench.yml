@@ -1,0 +1,31 @@
+name: Bench
+
+# Report-only (docs/benchmark.md §5: the gate enforces after two report-only
+# releases, and it enforces in the SCANNER repo's CI, not here).
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  bench:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
+        with:
+          python-version: "3.12"
+      # The released scanner, not a build: this workflow measures the corpus
+      # against what users actually have.
+      - name: Install airom
+        run: pip install airom
+      - name: Run the benchmark
+        run: |
+          airom bench . --json bench.json | tee "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: bench-report
+          path: bench.json

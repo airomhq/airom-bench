@@ -1,0 +1,16 @@
+schemaVersion: 1
+labeler: "rohan + claude, 2026-08-23"
+expected:
+  - kind: library
+    name: github.com/sashabaranov/go-openai
+    version: "1.36.1"
+    evidence: [{file: go.mod}, {file: main.go}]
+  - kind: hosted-llm
+    name: gpt-4o
+    provider: openai
+    version: ""
+    evidence: [{file: main.go, lines: [13, 17]}]
+notes: |
+  The label spells the dependency as go.mod declares it, the full module
+  path. Whether the scanner shortens it is a canonicalization question its
+  output has to win on its own terms.

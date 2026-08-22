@@ -1,0 +1,7 @@
+{
+  "name": "review-triage",
+  "private": true,
+  "dependencies": {
+    "@anthropic-ai/sdk": "0.33.1"
+  }
+}

@@ -1,0 +1,15 @@
+schemaVersion: 1
+labeler: "rohan + claude, 2026-08-23"
+expected:
+  - kind: library
+    name: "@anthropic-ai/sdk"
+    version: "0.33.1"
+    evidence: [{file: package.json}, {file: src/triage.ts}]
+  - kind: hosted-llm
+    name: claude-3-5-haiku-20241022
+    provider: anthropic
+    version: ""
+    evidence: [{file: src/triage.ts, lines: [6, 11]}]
+notes: |
+  Exact npm pin (no range), so the SDK version IS graded exact here — the
+  counterpart to s-js-openai's absent assertion.

@@ -1,0 +1,15 @@
+schemaVersion: 1
+labeler: "rohan + claude, 2026-08-23"
+expected:
+  - kind: library
+    name: async-openai
+    version: ""
+    evidence: [{file: Cargo.toml}, {file: src/main.rs}]
+  - kind: hosted-llm
+    name: gpt-4o-mini
+    provider: openai
+    version: ""
+    evidence: [{file: src/main.rs, lines: [6, 9]}]
+notes: |
+  Cargo "0.27.2" is caret semantics, a range: the honest version is absent,
+  same assertion as the npm entry.

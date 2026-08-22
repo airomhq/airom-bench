@@ -1,0 +1,13 @@
+services:
+  llm:
+    image: ollama/ollama:0.5.4
+    ports: ["11434:11434"]
+    volumes: ["ollama:/root/.ollama"]
+  app:
+    build: .
+    environment:
+      MODEL_ID: llama3.3:70b
+      OLLAMA_HOST: http://llm:11434
+    depends_on: [llm]
+volumes:
+  ollama:

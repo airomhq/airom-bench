@@ -1,0 +1,22 @@
+schemaVersion: 1
+labeler: "rohan + claude, 2026-08-23"
+expected:
+  - kind: framework
+    name: langchain4j
+    version: "0.36.2"
+    evidence: [{file: pom.xml}]
+  - kind: framework
+    name: langchain4j-open-ai
+    version: "0.36.2"
+    evidence: [{file: pom.xml}]
+  - kind: hosted-llm
+    name: gpt-4o-mini
+    provider: openai
+    version: ""
+    evidence: [{file: src/main/java/app/FaqBot.java, lines: [6, 9]}]
+notes: |
+  langchain4j is labeled framework by role symmetry with langchain.
+  2026-08-23: langchain4j-open-ai relabeled library -> framework after
+  review: it is a provider-integration module of the framework, same
+  groupId, versioned in lockstep. The original label was the weaker
+  reading, not the scanner.
