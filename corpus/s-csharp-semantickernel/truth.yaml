@@ -2,7 +2,7 @@ schemaVersion: 1
 labeler: "rohan + claude, 2026-08-23"
 expected:
   - kind: framework
-    name: Microsoft.SemanticKernel
+    name: semantic-kernel
     version: "1.32.0"
     evidence: [{file: Assistant.csproj}]
   - kind: hosted-llm
@@ -10,3 +10,8 @@ expected:
     provider: openai
     version: ""
     evidence: [{file: Program.cs, lines: [4, 4]}]
+notes: |
+  2026-08-23: label Microsoft.SemanticKernel -> semantic-kernel: the fold
+  policy names one canonical component per package across manifest and code
+  sightings, and the rules claim semantic-kernel. Same reasoning as the
+  anthropic relabel; the NuGet identity is purl business.

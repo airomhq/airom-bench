@@ -4,6 +4,29 @@ What the corpus has caught, newest first. Each entry names the shape, not
 the corpus content: fixes in the scanner reproduce the shape in a NEW
 fixture there (the contamination rule).
 
+## 2026-08-23 — after the fixes (airom @ 813a721)
+
+Precision 100.0%, recall 100.0% (31 labeled), zero traps, zero wrong
+versions/providers/locations, calibration 16/16 high and 14/14 medium. All
+five findings below fixed in the scanner; fixing them surfaced TWO more,
+both identity splits, also fixed:
+
+6. **Go AST sightings carried no provider**, so the same module arrived as
+   two identical components (CanonicalKey includes the provider). The AST
+   table now mirrors the go.mod catalog.
+7. **Semantic Kernel never folded**: the NuGet catalog said
+   "Microsoft.SemanticKernel", the rule pack "semantic-kernel". Display
+   names fold; declared identities live in the purl.
+
+Three labels moved in the same pass, each with reasoning committed in its
+truth file: the npm/NuGet canonical-name folds, sentence-transformers
+framework -> library (the catalog draws the orchestrates-vs-wraps line
+deliberately), and a Go version missing its canonical v prefix — exposed
+only when the fold delivered the version to the matched component.
+
+A saturated Tier S means the KNOWN shapes are handled. It does not mean the
+scanner is done; Tier R exists to break it again.
+
 ## 2026-08-23 — first Tier S run (airom v0.4.1-dev, rules v0.1.6)
 
 Precision 66.7% (33 reported), recall 71.0% (31 labeled), 0 traps, 0 wrong

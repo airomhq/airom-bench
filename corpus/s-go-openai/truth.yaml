@@ -3,7 +3,7 @@ labeler: "rohan + claude, 2026-08-23"
 expected:
   - kind: library
     name: github.com/sashabaranov/go-openai
-    version: "1.36.1"
+    version: "v1.36.1"
     evidence: [{file: go.mod}, {file: main.go}]
   - kind: hosted-llm
     name: gpt-4o
@@ -14,3 +14,7 @@ notes: |
   The label spells the dependency as go.mod declares it, the full module
   path. Whether the scanner shortens it is a canonicalization question its
   output has to win on its own terms.
+  2026-08-23: version 1.36.1 -> v1.36.1. Go module versions carry the v by
+  canon and go.mod declares it; the bare spelling was the labeler's habit
+  from other ecosystems. Exposed only when the split-brain fix folded the
+  manifest sighting (which carries the version) into the matched component.

@@ -13,7 +13,7 @@ expected:
     name: chroma
     version: "0.6.2"
     evidence: [{file: requirements.txt}, {file: src/pipeline.py}]
-  - kind: framework
+  - kind: library
     name: sentence-transformers
     version: "3.3.1"
     evidence: [{file: requirements.txt}]
@@ -41,8 +41,10 @@ expected:
 notes: |
   The kind-dense Python entry: manifest + code corroboration for the library
   and vector DB, a hosted model with bound params, a local embedding model
-  reference, a Jinja prompt, and a JSONL dataset. sentence-transformers is
-  labeled framework (it wraps model use); if the catalog says library, that
+  reference, a Jinja prompt, and a JSONL dataset. sentence-transformers was
+  labeled framework and relabeled library on 2026-08-23: the catalog draws
+  the line deliberately (transformers orchestrates, sentence-transformers is
+  a usage API atop it), and that
   is a labeling debate to settle in this file's history, not silently.
   2026-08-23: rag-pipeline label ADDED after first run: the tree embeds,
   stores, retrieves, and generates, which is the definition of the
