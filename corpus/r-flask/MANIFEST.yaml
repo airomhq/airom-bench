@@ -1,0 +1,7 @@
+tier: real
+upstream: https://github.com/pallets/flask
+commit: d318b683471101618febed18996405ad26462110
+license: BSD-3-Clause
+sha256: d9e95f6100bb2479247da4b8055b80a52ef8c059cd74ade5b7df46ce01033d77
+labeler: "rohan + claude, 2026-08-23"
+purpose: real-world pure negative — a widely used web framework with no AI anywhere

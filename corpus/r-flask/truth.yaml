@@ -1,0 +1,12 @@
+schemaVersion: 1
+labeler: "rohan + claude, 2026-08-23"
+notes: |
+  Pure negative, real-world. Verified by reading before any scan: 83 Python
+  files, and a grep for every provider, framework, and model-name family in
+  AIROM's catalogs across the pyproject, requirements, and sources returns
+  nothing. Anything reported here is a false positive.
+
+  Tier S already has a synthetic pure negative. This one exists because a
+  hand-written negative only proves the scanner ignores what its author
+  thought to leave out; a real project of this size is where an over-eager
+  keyword actually fires.
