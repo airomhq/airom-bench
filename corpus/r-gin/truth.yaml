@@ -1,0 +1,12 @@
+schemaVersion: 1
+labeler: "rohan + claude, 2026-08-24"
+notes: |
+  Pure negative, real-world. Verified by reading before any scan: the
+  manifest declares no AI package and a grep for every provider, framework,
+  and model family in AIROM's catalogs returns nothing across the tree.
+  Anything reported here is a false positive.
+
+  Ecosystem coverage is the point. The first real-world negative (r-flask)
+  found a dual-use PyPI entry claimed as a vector database from a bare
+  dependency line. The npm and Go catalogs are separate tables with their own
+  entries; this is where an equivalent mistake in them would show.

@@ -1,0 +1,7 @@
+tier: real
+upstream: https://github.com/expressjs/express
+commit: 023767fe9872e029271df1418f73401bff20ff40
+license: MIT
+sha256: 4a6edf667c4e33f786409c67d6bdf016c370f81de913cdbe97946f7949672934
+labeler: "rohan + claude, 2026-08-24"
+purpose: real-world pure negative, npm — 30+ transitive-style dependencies, none AI

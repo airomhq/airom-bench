@@ -1,0 +1,7 @@
+tier: real
+upstream: https://github.com/gin-gonic/gin
+commit: dcaa4296d111981ffb31ac3eba90bb63e1eb5ab9
+license: MIT
+sha256: a3abd4625f6565a660ec49595fc0fabfa3df4f5a529dba38b59375ee84dcb26d
+labeler: "rohan + claude, 2026-08-24"
+purpose: real-world pure negative, Go modules — a web framework whose go.mod the golang catalog must not misread
