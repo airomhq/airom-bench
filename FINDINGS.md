@@ -4,6 +4,32 @@ What the corpus has caught, newest first. Each entry names the shape, not
 the corpus content: fixes in the scanner reproduce the shape in a NEW
 fixture there (the contamination rule).
 
+## 2026-08-24 — Tier R begins, and finds one on the first run (airom @ 9adac6a)
+
+The first real-world entry is `r-flask`: pallets/flask, BSD-3-Clause, 83
+Python files, no AI anywhere. It found a false positive that the synthetic
+pure negative could not.
+
+8. **A bare `redis` dependency was claimed as a vector database**, at 0.95
+   confidence, from Flask's own celery example. redis is dual-use: the pip
+   package is a cache/broker client, and a vector store only with Redis
+   Stack's vector API. The manifest catalog entry asserted the vector reading
+   with nothing behind it. Fixed by following the pattern already used for
+   elasticsearch and mongodb — both absent from the catalog, both claimed by
+   usage rules — so genuine `VectorField`/`FT.CREATE` usage still reports
+   redis, now at 0.985.
+
+That is the argument for Tier R in one finding. A hand-written negative only
+proves the scanner ignores what its author thought to leave out.
+
+Also fixed: the evaluator refused every GitHub tarball, because
+`pax_global_header` (the entry git writes carrying the commit SHA) hit an
+"unsupported entry type" guard meant for symlinks and specials. Tier R could
+not load at all until it was skipped. Found by using the instrument on real
+data for the first time.
+
+Corpus after: precision 100.0%, recall 100.0% across 14 entries, 266 files.
+
 ## 2026-08-23 — after the fixes (airom @ 813a721)
 
 Precision 100.0%, recall 100.0% (31 labeled), zero traps, zero wrong
